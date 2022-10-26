@@ -39,7 +39,9 @@ app.post("/add-category", function (req, res) {
 });
 
 app.post("/add-task", function (req, res) {
+    todoList.push(req.body);
     console.log(req.body);
+    return res.redirect("/");
 });
 
 app.listen(port, function (err) {
