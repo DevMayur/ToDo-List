@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="/css/style.css" />
         <title>Todo</title>
     </head>
     <body>
@@ -24,6 +24,9 @@
                     <p class="heading-side-button">Priority</p>
                 </div>
             </header>
+
+            <% for (let i of todo_list) { %>
+
             <!-- content-card -->
             <div class="content-card">
                 <!-- lvl 1 -->
@@ -35,19 +38,17 @@
                     </div>
                     <!-- Todo Item details -->
                     <div class="todo-item">
-                        <p>
-                            Search for inspiration for next project & pick an
-                            idea for the event which is organized for students
-                            as well working professionals.
-                        </p>
+                        <p><%= i.content %></p>
                     </div>
                 </div>
                 <!-- lvl 2 -->
                 <div class="lvl-2">
-                    <p class="timer">⏱️12:00:00 PM</p>
-                    <p class="tag">🏷️ Study</p>
+                    <p class="timer">⏱️<%= i.deadline %> PM</p>
+                    <p class="tag">🏷️ <%= i.category %></p>
                 </div>
             </div>
+
+            <% } %>
         </div>
         <!-- Sidebar -->
         <aside class="sidebar">
