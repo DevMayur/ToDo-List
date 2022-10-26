@@ -1,0 +1,241 @@
+:root {
+    --color-depth-full: #1b2430;
+    --color-depth-4: #25303f;
+    --color-depth-3: #1b2d58;
+    --color-depth-2: #64899f;
+    --color-depth-1: #69656e;
+    --color-on-surface: #cccccd;
+    --color-accent: #60c9af;
+    --color-text-primary: #cedcd9;
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--color-depth-full);
+}
+
+.content-area {
+    display: inline-block;
+    width: 60%;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+/* custom scrollbar */
+.content-area::-webkit-scrollbar {
+    width: 16px;
+}
+
+.content-area::-webkit-scrollbar-track {
+    background-color: var(--color-depth-full);
+    border-radius: 100px;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+    background-color: var(--color-depth-4);
+    border-radius: 100px;
+}
+
+header {
+    position: relative;
+}
+
+.main-heading {
+    color: var(--color-text-primary);
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.button-container-div {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    height: 50px;
+    padding: 1px 12px;
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+.heading-side-button {
+    display: inline-block;
+    color: var(--color-text-primary);
+    padding: 12px;
+    background-color: var(--color-depth-4);
+    border-radius: 12px;
+    margin-right: 12px;
+}
+
+.heading-side-button:hover {
+    display: inline-block;
+    color: var(--color-text-primary);
+    padding: 12px;
+    background-color: var(--color-depth-3);
+    border-radius: 12px;
+    margin-right: 12px;
+}
+
+/*content card*/
+
+.content-card {
+    border: 3px solid var(--color-depth-4);
+    border-radius: 12px;
+    position: relative;
+    margin: 12px;
+    background-color: var(--color-depth-full);
+}
+
+/*round checkbox*/
+.round {
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    display: inline-block;
+}
+
+.round label {
+    background-color: var(--color-depth-3);
+    border: 1px solid var(--color-depth-3);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 28px;
+}
+
+.round label:after {
+    border: 2px solid var(--color-depth-full);
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+
+.round input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+    background-color: var(--color-depth-1);
+    border-color: var(--color-depth-1);
+}
+
+.round input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+
+/*todo - item*/
+
+.todo-item {
+    display: inline-block;
+    width: 70%;
+    margin: 0px 12px 0px 54px;
+}
+
+.todo-item p {
+    display: inline-block;
+    color: var(--color-text-primary);
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    font-weight: bold;
+}
+
+.timer {
+    display: inline-block;
+    padding: 12px;
+    margin-right: 12px;
+    background-color: var(--color-depth-4);
+    color: var(--color-text-primary);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.tag {
+    display: inline-block;
+    padding: 12px;
+    margin-right: 12px;
+    background-color: var(--color-depth-4);
+    color: var(--color-text-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+}
+
+.lvl-2 {
+    display: inline-block;
+    width: 70%;
+    margin: 0px 12px 0px 42px;
+    position: relative;
+}
+
+.sidebar {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    padding-left: 24px;
+}
+
+input,
+select,
+button,
+option {
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-depth-4);
+    padding: 6px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+}
+
+input,
+select,
+button {
+    padding-bottom: 12px;
+    padding-top: 12px;
+    margin-bottom: 12px;
+}
+
+.form-input input {
+    width: 100%;
+    height: 40px;
+}
+
+.form-input label {
+    display: block;
+    margin-top: 20px;
+    font-size: 12px;
+    margin-bottom: 3px;
+    width: 100%;
+    color: var(--color-text-primary);
+}
+
+.submit-button button {
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-button button:hover {
+    background-color: var(--color-depth-3);
+    color: var(--color-text-primary);
+}

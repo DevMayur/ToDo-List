@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Todo</title>
+    </head>
+    <body>
+        <header>
+            <h2 class="main-heading">To Do</h2>
+            <div class="button-container-div">
+                <p class="heading-side-button">Add Task +</p>
+            </div>
+        </header>
+        <hr />
+        <!-- Content Area -->
+        <div class="content-area">
+            <header>
+                <h2 class="main-heading">Tasks</h2>
+                <div class="button-container-div">
+                    <p class="heading-side-button">Reminder</p>
+                    <p class="heading-side-button">Priority</p>
+                </div>
+            </header>
+            <!-- content-card -->
+            <div class="content-card">
+                <!-- lvl 1 -->
+                <div>
+                    <!-- Checkbox -->
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox" />
+                        <label for="checkbox"></label>
+                    </div>
+                    <!-- Todo Item details -->
+                    <div class="todo-item">
+                        <p>
+                            Search for inspiration for next project & pick an
+                            idea for the event which is organized for students
+                            as well working professionals.
+                        </p>
+                    </div>
+                </div>
+                <!-- lvl 2 -->
+                <div class="lvl-2">
+                    <p class="timer">⏱️12:00:00 PM</p>
+                    <p class="tag">🏷️ Study</p>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="form-add-category">
+                <form autocomplete="off" action="post">
+                    <div class="form-input text-input">
+                        <label for="text">Category Name </label>
+                        <input id="text" name="category-name" type="text" />
+                    </div>
+
+                    <div class="form-input submit-button">
+                        <button type="submit">Add Category</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-add-task">
+                <form autocomplete="off" action="post">
+                    <div class="form-input text-input">
+                        <label for="text">Content </label>
+                        <input id="text" name="text" type="text" />
+                    </div>
+
+                    <div class="form-input date-time-input">
+                        <label for="deadline">Deadline :</label>
+                        <input
+                            id="deadline"
+                            name="deadline"
+                            type="datetime-local" />
+                    </div>
+                    <div class="form-input select-option">
+                        <label for="categories">Categories</label>
+                        <select name="categories" id="categories">
+                            <option value="generic">Generic</option>
+                        </select>
+                    </div>
+                    <div class="form-input submit-button">
+                        <button type="submit">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </aside>
+    </body>
+</html>
