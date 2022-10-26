@@ -34,6 +34,14 @@ app.get("/", function (req, res) {
     });
 });
 
+app.post("/add-category", function (req, res) {
+    console.log(req.body);
+});
+
+app.post("/add-task", function (req, res) {
+    console.log(req.body);
+});
+
 app.listen(port, function (err) {
     if (err) {
         console.log(err);
