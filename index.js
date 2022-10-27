@@ -1,8 +1,10 @@
 const express = require("express");
 const path = require("path");
-
 const port = 8000;
 
+const db = require("./config/mongoose");
+const TodoSchema = require("./models/todo-item");
+const CategorySchema = require("./models/category-item");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -12,36 +14,52 @@ app.use(express.static("assets"));
 
 app.set("views", path.join(__dirname, "views"));
 
-var todoList = [
-    {
-        content:
-            "This is demo todo item created to test the functionality of passing a list from express js to the ejs view engine.",
-        deadline: "13/12/1998 10:00:10",
-        category: "Coding Ninjas",
-    },
-
-    {
-        content:
-            "This is second demo todo item created to test the functionality of passing a list from express js to the ejs view engine. & check if it scrolls",
-        deadline: "31/05/1997 01:12:30",
-        category: "Pune University",
-    },
-];
-
 app.get("/", function (req, res) {
-    return res.render("index", {
-        todo_list: todoList,
+    var todoListGlobal = [];
+    var categoryListGlobal = [];
+    TodoSchema.find({}, function (err, todoList) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        todoListGlobal = todoList;
+        CategorySchema.find({}, function (err, categoryList) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            categoryListGlobal = categoryList;
+            return res.render("index", {
+                todo_list: todoListGlobal,
+                categories: categoryListGlobal,
+            });
+        });
     });
 });
 
 app.post("/add-category", function (req, res) {
+    CategorySchema.create(req.body, function (err, newCategory) {
+        if (err) {
+            console.log("error creating category");
+            return;
+        }
+        console.log("****category added****");
+        return res.redirect("back");
+    });
     console.log(req.body);
 });
 
 app.post("/add-task", function (req, res) {
-    todoList.push(req.body);
+    // todoList.push(req.body);
     console.log(req.body);
-    return res.redirect("/");
+    TodoSchema.create(req.body, function (err, newTask) {
+        if (err) {
+            console.log("error in storing task", err);
+            return;
+        }
+        console.log("****task added****");
+        return res.redirect("back");
+    });
 });
 
 app.listen(port, function (err) {

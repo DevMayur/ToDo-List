@@ -56,7 +56,7 @@
                 <form autocomplete="off" method="post" action="add-category">
                     <div class="form-input text-input">
                         <label for="text">Category Name </label>
-                        <input id="text" name="category-name" type="text" />
+                        <input id="text" name="category" type="text" />
                     </div>
 
                     <div class="form-input submit-button">
@@ -82,7 +82,11 @@
                     <div class="form-input select-option">
                         <label for="category">Categories</label>
                         <select name="category" id="category">
-                            <option value="generic">Generic</option>
+                            <% for (let i of categories) {%>
+                            <option value="<%= i.category %>">
+                                <%= i.category %>
+                            </option>
+                            <% } %>
                         </select>
                     </div>
                     <div class="form-input submit-button">
