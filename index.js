@@ -63,16 +63,29 @@ app.post("/add-task", function (req, res) {
 });
 
 app.post("/delete-task", function (req, res) {
-    // todoList.push(req.body);
-    console.log(req.body);
-    TodoSchema.deleteOne(req.body, function (err, newTask) {
+    TodoSchema.findByIdAndDelete(req.body.post_id, function (err, res2) {
         if (err) {
-            console.log("error in storing task", err);
+            console.log("error deleting task");
             return;
         }
-        console.log("****task added****");
+        console.log("deleted successfully!, ");
         return res.redirect("back");
     });
+});
+
+app.post("/delete-selected-request", function (req, res) {
+    let ids = req.body.ids.split(",");
+    for (var i = 0; i < ids.length; i++) {
+        TodoSchema.findByIdAndDelete(ids[i], function (err, res2) {
+            res = res2;
+            if (err) {
+                console.log("error deleting task");
+                return;
+            }
+        });
+    }
+    console.log("deleted successfully!, ");
+    return res.redirect("back");
 });
 
 app.listen(port, function (err) {

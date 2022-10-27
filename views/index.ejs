@@ -20,7 +20,9 @@
             <header>
                 <h2 class="main-heading">Tasks</h2>
                 <div class="button-container-div">
-                    <p class="heading-side-button">❌ Delete Selected</p>
+                    <p class="heading-side-button" id="delete-selected-button">
+                        ❌ Delete Selected
+                    </p>
                 </div>
             </header>
 
@@ -32,8 +34,13 @@
                 <div>
                     <!-- Checkbox -->
                     <div class="round">
-                        <input type="checkbox" checked id="checkbox" />
-                        <label for="checkbox"></label>
+                        <label class="container">
+                            <input
+                                class="checkbox-class"
+                                type="checkbox"
+                                value="<%= i._id %>" />
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
                     <!-- Todo Item details -->
                     <div class="todo-item">
@@ -48,9 +55,13 @@
                         class="single-btn-form"
                         action="delete-task"
                         method="post">
-                        <p name="post-id" class="tag delete-button" value="23">
+                        <button
+                            name="post_id"
+                            type="submit"
+                            class="tag delete-button"
+                            value="<%= i._id %>">
                             ❌ Delete
-                        </p>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -104,5 +115,6 @@
                 </form>
             </div>
         </aside>
+        <script src="/js/script.js"></script>
     </body>
 </html>
