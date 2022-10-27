@@ -62,6 +62,19 @@ app.post("/add-task", function (req, res) {
     });
 });
 
+app.post("/delete-task", function (req, res) {
+    // todoList.push(req.body);
+    console.log(req.body);
+    TodoSchema.deleteOne(req.body, function (err, newTask) {
+        if (err) {
+            console.log("error in storing task", err);
+            return;
+        }
+        console.log("****task added****");
+        return res.redirect("back");
+    });
+});
+
 app.listen(port, function (err) {
     if (err) {
         console.log(err);

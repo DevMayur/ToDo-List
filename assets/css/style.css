@@ -244,3 +244,7 @@ button {
     background-color: var(--color-depth-3);
     color: var(--color-text-primary);
 }
+
+.single-btn-form {
+    display: inline-block;
+}

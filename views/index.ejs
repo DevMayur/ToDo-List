@@ -20,7 +20,7 @@
             <header>
                 <h2 class="main-heading">Tasks</h2>
                 <div class="button-container-div">
-                    <p class="heading-side-button">Delete Selected</p>
+                    <p class="heading-side-button">❌ Delete Selected</p>
                 </div>
             </header>
 
@@ -44,7 +44,14 @@
                 <div class="lvl-2">
                     <p class="timer">⏱️<%= i.deadline %> PM</p>
                     <p class="tag">🏷️ <%= i.category %></p>
-                    <p class="tag delete-button">❌ Delete</p>
+                    <form
+                        class="single-btn-form"
+                        action="delete-task"
+                        method="post">
+                        <p name="post-id" class="tag delete-button" value="23">
+                            ❌ Delete
+                        </p>
+                    </form>
                 </div>
             </div>
 
@@ -64,6 +71,8 @@
                     </div>
                 </form>
             </div>
+
+            <hr />
 
             <div class="form-add-task">
                 <form autocomplete="off" method="post" action="add-task">
